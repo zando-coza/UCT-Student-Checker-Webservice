@@ -1,4 +1,4 @@
-#UCT Student Checker Webservice
+#UCT Student Checker
 This is a nifty webservice to check if a person is a registered student at UCT or not.
 
 ##Getting Started
