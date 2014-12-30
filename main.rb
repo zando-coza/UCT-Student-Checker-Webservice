@@ -9,7 +9,11 @@ get '/student/:studentnumber' do
   studentNumber =params[:studentnumber]
   begin
     o = PeoplesoftScraper.retrieve(studentNumber)
-     "Student Name: #{o[:student_name]}"
+    recentYearResults = o[:terms].first
+     mostRecentYear = recentYearResults[:year]
+     puts mostRecentYear
+     "Student Name: #{o[:student_name]} #{o[:terms]}"
+
   rescue Exception => e
 
   end
