@@ -3,6 +3,7 @@ require 'sinatra'
 require 'json'
 
 set :server, 'webrick'
+set :environment, :production
 
 
 get '/student/:studentnumber' do
