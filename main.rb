@@ -14,6 +14,14 @@ get '/student/:studentnumber' do
     # Initialize the Object
     o = PeoplesoftScraper.retrieve(studentNumber)
 
+   # Defensiveness if the students terms aren't accessible due to unpaid fees etc.
+    if o[:terms].first.nil? then
+      # set status code to not found
+      status 404
+      # build response
+      return {:studentNumber => studentNumber, :error => 'Student found, but unable to determine year'}.to_json
+    end
+
     # Get the most recent year of results
     recentYearResults = o[:terms].first
 
