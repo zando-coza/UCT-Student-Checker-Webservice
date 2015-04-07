@@ -1,11 +1,3 @@
-require 'peoplesoft_scraper'
-require 'sinatra'
-require 'json'
-
-set :server, 'webrick'
-set :environment, :production
-
-
 get '/student/:studentnumber' do
   content_type :json
   # Send the student number through to the existing peopleSoft parser
