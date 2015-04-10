@@ -11,7 +11,7 @@ get '/student/:studentnumber' do
       # set status code to not found
       status 404
       # build response
-      return {:studentNumber => studentNumber, :error => 'Student found, but unable to determine year'}.to_json
+      return 'false'
     end
 
     # Get the most recent year of results
@@ -32,14 +32,14 @@ get '/student/:studentnumber' do
       studentName = o[:student_name]
 
       # build response
-      {:studentNumber => studentNumber, :studentName => studentName, :mostRecentYear => mostRecentYear}.to_json
+      'true'
     else
 
       # set status code to not found
       status 404
 
       # build response
-      {:studentNumber => studentNumber, :error => 'Student not registered in 2015'}.to_json
+      'false'
     end
 
       # handle exception
@@ -49,6 +49,6 @@ get '/student/:studentnumber' do
     status 404
 
     # build response
-    {:studentNumber => studentNumber, :error => 'Student not found'}.to_json
+    'false'
   end
 end
